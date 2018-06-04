@@ -1,0 +1,55 @@
+
+// CODE FOR ENCODER USING CASE STATEMENTS
+
+module encoder_using_case(
+input logic [15:0] hex_in, 
+input logic enable,
+output logic [3:0] binary_out);
+always_comb
+ENCODER : begin
+binary_out = 0;
+if (enable)
+begin
+case (hex_in)
+
+16'h 0002 : binary_out = 1;
+16'h 0004 : binary_out = 2;
+16'h 0008 : binary_out = 3;
+16'h 0010 : binary_out = 4;
+16'h 0020 : binary_out = 5;
+16'h 0040 : binary_out = 6;
+
+endcase 
+end
+end
+endmodule
+
+
+
+// CODE FOR DECODER USING CASE STATEMENTS
+
+module decoder_using_case(
+input logic [3:0] binary_in, 
+input logic enable,
+output logic [15:0] hex_out);
+
+always_comb
+DECODER : begin
+hex_out = 0;
+if (enable)
+begin
+case (binary_in)
+
+4'h 1 : hex_out = 0002;
+4'h 2 : hex_out = 0004;
+4'h 3 : hex_out = 0008;
+4'h 4 : hex_out = 0010;
+4'h 5 : hex_out = 0020;
+4'h 6 : hex_out = 0040;
+
+endcase 
+end
+end
+endmodule
+
+
