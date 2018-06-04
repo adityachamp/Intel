@@ -1,0 +1,44 @@
+//Code for async reset D-FF
+
+module (output logic out,
+	input logic reset,
+	input logic data,
+	input logic clk);
+
+always_ff @(posedge clk or negedge reset or negedge reset)
+
+if(~reset)        // since reset is active low
+begin
+out <= 1'b 0;
+end
+
+else
+begin
+out <= data;
+end
+
+endmodule
+
+
+
+
+//Code for sync reset D-FF
+
+module (output logic out,
+	input logic reset,
+	input logic data,
+	input logic clk);
+
+always_ff @(posedge clk)
+
+if(~reset)        // since reset is active low
+begin
+out <= 1'b 0;
+end
+
+else
+begin
+out <= data;
+end
+
+endmodule
