@@ -1,0 +1,22 @@
+//Code for D-latch with async reset
+
+module d_latch(input logic data,
+		input logic reset,
+		input logic enable,
+		output logic q);
+
+always_latch
+
+D-LATCH:begin
+
+if(~reset)
+	begin
+	q <= 1b'0;
+	end
+else if (enable)
+	begin 
+	q <= data;
+	end
+
+end
+endmodule
